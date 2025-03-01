@@ -1,0 +1,2 @@
+def display_greeting():
+    print('I display a greeting from the module "my_module.py"')
