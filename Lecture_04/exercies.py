@@ -1,5 +1,5 @@
 # Lecture 7 questions
-
+'''
 # A1
 list = []
 
@@ -20,9 +20,24 @@ my_words=["sahara", "gobi", "patagonia", "kalahari"]
 for word in my_words:
     print(word.capitalize())
 
-# A3
+
+
+
+# A3 & A4
+
 
 my_list_of_lists = [["a","b","c"], ["d","e","f"]]
 
-for n in my_list_of_lists:
-    print(my_list_of_lists)
+for sublist in my_list_of_lists:
+    for index in sublist:
+        print(index)
+
+'''
+
+# P4
+userInput = []
+
+while len(userInput) < 3:
+    userInput.append(input("Enter a firstname "))
+
+print(userInput)
