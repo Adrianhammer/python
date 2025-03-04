@@ -11,16 +11,37 @@ elif userInput in range(4,11):
     print("Not bad...")
 elif userInput > 10:
     print("Viking!")    
-"""
+
 
 #2
 
 
-for i in range(1,21):
+for i in range(0,21):
     if i % 2 == 0:
-        print(f"{i}")
+        print(f"Even numbers: {i}")
+
 
 
 #3
 
-for i in range 
+list = []
+
+for i in range (1,7):
+   randomInt = random.randint(1,30)
+   list.append(randomInt)
+
+
+print(list)
+
+"""
+
+#4
+
+def isPalindrome():
+    user_input = input("Insert a word: ")
+    if user_input[::-1] == user_input:
+        return True
+    else:
+        return False
+    
+print(isPalindrome())
