@@ -1,4 +1,6 @@
 # Nå begynner jeg med del 2 av oppgaven
 #2
 # a) - data cleaning
-text_file = open(/"xdc_companies_mac.txt", "r")
+text_file = open("Group assignment/xdc_companies_mac.txt", "r")
+
+print(text_file.read())
