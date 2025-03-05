@@ -13,13 +13,13 @@ elif userInput > 10:
     print("Viking!")    
 
 
+
 #2
 
 
 for i in range(0,21):
     if i % 2 == 0:
         print(f"Even numbers: {i}")
-
 
 
 #3
@@ -33,7 +33,7 @@ for i in range (1,7):
 
 print(list)
 
-"""
+
 
 #4
 
@@ -45,3 +45,9 @@ def isPalindrome():
         return False
     
 print(isPalindrome())
+
+"""
+
+
+
+
