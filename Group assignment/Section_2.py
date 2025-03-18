@@ -27,7 +27,7 @@ def function_a():
         xdc.append(column[4])
 
     text_file.close()
-    #print(*isin_company, sep="\n ")
+    print(*isin_company, sep="\n ")
 
 
 # b)
@@ -53,7 +53,7 @@ def function_b():
 
 # c) Fikser denne senere slik at text filen blir bedre skrevet til (vertikale kolonner istedenfor horisontale)
 def function_c():
-    with open("Group assignment/xdc_companies.txt", "r") as text_file:
+    with open("/Users/kamillakjaer/downloads/xdc_companies_mac.txt", "r") as text_file:
         content = text_file.read().replace("_", ",").replace("°C", "")
         lines = content.splitlines()
 
@@ -65,8 +65,10 @@ def function_c():
             currency.append(column[3])
             assetClass.append(column[4])
             xdc.append(column[5])
+print(xdc)
 
 
+#føler jeg sletta noe her im so sorry, vi ble stuck her
 def function_d():
     with open("Group assignment/xdc.txt", "w") as new_file:
         for list in lists:
