@@ -77,13 +77,13 @@ def function_d():
 #function_a()
 #function_b()
 function_c()
-function_d()
+#function_d()
+
 # e) oppgave a, b og c er hver sin egen funksjon. Kan sikkert endre på dette senere og ha alt i en funksjon
 
 # Data analysis tool
 
-# f) Hva mener han med denne oppgaven? Mener han lese fra filen vi lagde i oppgave d? eller fra listene
-#    "[...] in your data" er ganske vagt
+# f) Hvis company name + XDC i terminal
 
 # g) 
 
