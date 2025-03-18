@@ -59,6 +59,8 @@ def function_c():
             currency.append(column[3])
             assetClass.append(column[4])
             xdc.append(column[5])
+print(xdc)
+
 
 # Function D
 def function_d():
