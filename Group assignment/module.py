@@ -1,9 +1,3 @@
-# Nå begynner jeg med del 2 av oppgaven
-#2
-
-# a) - data cleaning oppgave
-
-
 isin_company = []
 marketValue = []
 currency = []
@@ -14,7 +8,9 @@ company = []
 
 lists = isin, company, marketValue, currency, assetClass, xdc
 
+# Data Cleaning:
 
+# Function A
 def function_a():
     text_file = open("Group assignment/xdc_companies_mac.txt", "r")
 
@@ -29,9 +25,7 @@ def function_a():
     text_file.close()
     print(*isin_company, sep="\n ")
 
-
-# b)
-
+# Function B
 def function_b():
     with open("Group assignment/xdc_companies.txt", "r") as text_file:
         content = text_file.read().replace("_", ",")
@@ -50,8 +44,7 @@ def function_b():
     #print(*isin, sep="\n ")
     print(*company, sep="\n ")
 
-
-# c) Fikser denne senere slik at text filen blir bedre skrevet til (vertikale kolonner istedenfor horisontale)
+# Function C
 def function_c():
      with open("Group assignment/xdc_companies.txt", "r") as text_file:
 #    with open("/Users/kamillakjaer/downloads/xdc_companies_mac.txt", "r") as text_file:
@@ -67,23 +60,15 @@ def function_c():
             assetClass.append(column[4])
             xdc.append(column[5])
 
-
-#føler jeg sletta noe her im so sorry, vi ble stuck her
+# Function D
 def function_d():
     with open("Group assignment/xdc.txt", "w") as new_file:
         for list in lists:
             new_file.write(f"{list}\r\n")
 
-#function_a()
-#function_b()
-#function_c()
-#function_d()
+# Data analysis tools:
 
-# e) oppgave a, b og c er hver sin egen funksjon. Kan sikkert endre på dette senere og ha alt i en funksjon
-
-# Data analysis tool
-
-# f) Hvis company name + XDC i terminal
+# Function F
 def function_f():
         with open("Group assignment/xdc_companies.txt", "r") as text_file:
             content = text_file.read().replace("_", ",")
@@ -112,38 +97,7 @@ def function_f():
                 f"{company[10]}":f"{xdc[10]}"
                 }
 
-        print(companies) 
+        print(companies)
 
-# function_f()
-
-
-# g) 
-
-
-def function_g():
-    user_input = input("Which company would you like to see the data for? ")
-
-    with open("Group assignment/xdc_companies.txt", "r") as text_file:
-        content = text_file.read().replace("_", ",")
-        lines = content.splitlines()
-        for line in lines:
-            column = line.split(",")
-            isin.append(column[0])
-            company.append(column[1])
-            marketValue.append(column[2])
-            currency.append(column[3])
-            assetClass.append(column[4])
-            xdc.append(column[5])
-
-
-    while user_input not in company:
-        print("Please write another company")
-        user_input = input("Which company would you like to see the data for? ")
-    
-    
-    print("great")
-    
-
-
-function_g() 
-
+# Function G
+# Legges her: 
