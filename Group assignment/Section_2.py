@@ -120,8 +120,11 @@ def function_f():
 # g) 
 
 
+""" 
+Lar funksjonen vi begynte på stå her så kan du se at vi var på rett vei, vi begynte bare å sette opp dictionary på feil måte for oppgaven
+
 def function_g():
-    user_input = input("Which company would you like to see the data for? ")
+    #user_input = input("Which company would you like to see the data for? ")
 
     with open("Group assignment/xdc_companies.txt", "r") as text_file:
         content = text_file.read().replace("_", ",")
@@ -135,15 +138,47 @@ def function_g():
             assetClass.append(column[4])
             xdc.append(column[5])
 
+            companies_dic = {"Sika AG": [xdc]}
 
-    while user_input not in company:
-        print("Please write another company")
-        user_input = input("Which company would you like to see the data for? ")
-    
-    
-    print("great")
+            print(companies_dic) """
+
+
     
 
+def function_g():
+    
+    data = {}
+    userInput = input("Which company would you like to see the data for? ")
 
-function_g() 
+    with open("Group assignment/xdc_companies.txt", "r") as textFile:
+        lines = textFile.readlines()
 
+        for line in lines:
+            line = line.replace("_", ",")
+            print(f"Processing line: {line.strip()}")
+            section = line.strip().split(",")
+
+            isin = section[0]
+            company = section[1]
+            marketValue = section[2]
+            currency = section[3]
+            assetClass = section[4]
+            xdc = section[5]
+
+
+            data[company] = {
+                "ISIN" : isin,
+                "Market Value" : marketValue,
+                "Currency" : currency,
+                "Asset class" : assetClass,
+                "xdc" : xdc
+            }
+
+        while userInput not in data:
+            print("Could not find company that you are asking for, please try again")
+            userInput = input("Which company would you like to see the data for? ")
+
+        print(f"Data for {userInput} : {data[userInput]}")
+
+
+function_g()
