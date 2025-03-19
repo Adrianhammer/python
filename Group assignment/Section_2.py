@@ -178,6 +178,3 @@ def function_g():
             userInput = input("Which company would you like to see the data for? ")
 
         print(f"Data for {userInput} : {data[userInput]}")
-
-
-function_g()

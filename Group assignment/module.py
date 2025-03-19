@@ -102,4 +102,36 @@ def function_f():
         print(companies)
 
 # Function G
-# Legges her: 
+def function_g():
+    
+    data = {}
+    userInput = input("Which company would you like to see the data for? ")
+
+    with open("Group assignment/xdc_companies.txt", "r") as textFile:
+        lines = textFile.readlines()
+
+        for line in lines:
+            line = line.replace("_", ",")
+            section = line.strip().split(",")
+
+            isin = section[0]
+            company = section[1]
+            marketValue = section[2]
+            currency = section[3]
+            assetClass = section[4]
+            xdc = section[5]
+
+
+            data[company] = {
+                "ISIN" : isin,
+                "Market Value" : marketValue,
+                "Currency" : currency,
+                "Asset class" : assetClass,
+                "xdc" : xdc
+            }
+
+        while userInput not in data:
+            print("Could not find company that you are asking for, please try again")
+            userInput = input("Which company would you like to see the data for? ")
+
+        print(f"Data for {userInput} : {data[userInput]}")

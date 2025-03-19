@@ -19,5 +19,5 @@ elif userInput == 2:
     module.function_f()
 elif userInput == 3:
     print("Now running function c ")
-    module.function_c
+    module.function_g()
 
