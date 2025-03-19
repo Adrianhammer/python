@@ -2,7 +2,7 @@
 import random
 
 #1
-"""
+
 userInput = int(input("How many drinks do you usually have on a night out? "))
 
 if userInput <= 3:
@@ -10,8 +10,7 @@ if userInput <= 3:
 elif userInput in range(4,11):
     print("Not bad...")
 elif userInput > 10:
-    print("Viking!")    
-
+    print("Viking!")   
 
 
 #2
@@ -26,7 +25,7 @@ for i in range(0,21):
 
 list = []
 
-for i in range (1,7):
+for i in range (6):
    randomInt = random.randint(1,30)
    list.append(randomInt)
 
@@ -46,7 +45,7 @@ def isPalindrome():
     
 print(isPalindrome())
 
-"""
+
 
 
 

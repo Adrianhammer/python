@@ -12,8 +12,9 @@ lists = isin, company, marketValue, currency, assetClass, xdc
 
 # Function A
 def function_a():
+    #Opening the textfile
     text_file = open("Group assignment/xdc_companies_mac.txt", "r")
-
+#We used a for loop to split the columns by commas
     for line in text_file:
         column = line.split(",")
         isin_company.append(column[0])
@@ -21,16 +22,20 @@ def function_a():
         currency.append(column[2])
         assetClass.append(column[3])
         xdc.append(column[4])
-
+#Closing file to save adjustments
     text_file.close()
+    #printing to test out function, and seperating lines so it looks more clean when printed
     print(*isin_company, sep="\n ")
 
 # Function B
 def function_b():
     with open("Group assignment/xdc_companies.txt", "r") as text_file:
+        #We used the function replace to split isin and company, we thought this was the easiest way as we 
+        #already split the lines with split(",")
         content = text_file.read().replace("_", ",")
         lines = content.splitlines()
 
+#adding isin as a seperate column, and therefore the index numbers change
         for line in lines:
             column = line.split(",")
             isin.append(column[0])
@@ -40,33 +45,36 @@ def function_b():
             assetClass.append(column[4])
             xdc.append(column[5])
 
-
-    #print(*isin, sep="\n ")
+#printing to check that they are seperated
+    print(*isin, sep="\n ")
     print(*company, sep="\n ")
 
 # Function C
-def function_c():
-     with open("Group assignment/xdc_companies.txt", "r") as text_file:
-#    with open("/Users/kamillakjaer/downloads/xdc_companies_mac.txt", "r") as text_file:
-        content = text_file.read().replace("_", ",").replace("°C", "")
-        lines = content.splitlines()
+def function_c(): 
+    input_file=open("Group assignment/xdc_companies.txt", "r")
+    content = input_file.read().replace("_", ",").replace("°C", "")
+    lines = content.splitlines()
 
-        for line in lines:
-            column = line.split(",")
-            isin.append(column[0])
-            company.append(column[1])
-            marketValue.append(column[2])
-            currency.append(column[3])
-            assetClass.append(column[4])
-            xdc.append(column[5])
-print(xdc)
+    for line in lines:
+        parts=line.split(",")
+        xdc.append(parts[5])
+    
+    print(xdc)
 
 
 # Function D
 def function_d():
-    with open("Group assignment/xdc.txt", "w") as new_file:
-        for list in lists:
-            new_file.write(f"{list}\r\n")
+    input_file = open("Group assignment/xdc_companies_mac.txt", "r")
+    output_file = open("Group assignment/xdc.txt", "w")
+    lines = input_file.readlines()
+
+    for line in lines:
+        line = line.replace("_", ",")
+        parts = line.split(",")
+        output_file.write(f"{parts[0]}\n{parts[1]}\n{parts[2]}\n{parts[3]}\n{parts[5]}\n")
+    
+    input_file.close()
+    output_file.close()
 
 # Data analysis tools:
 
@@ -85,6 +93,7 @@ def function_f():
                 assetClass.append(column[4])
                 xdc.append(column[5])
 
+#We used dictionaries to connect each column
             companies={
                 f"{company[0]}":f"{xdc[0]}",
                 f"{company[1]}":f"{xdc[1]}",
@@ -99,7 +108,7 @@ def function_f():
                 f"{company[10]}":f"{xdc[10]}"
                 }
 
-        print(companies)
+        print(companies) 
 
 # Function G
 def function_g():

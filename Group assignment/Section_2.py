@@ -1,7 +1,50 @@
-# Nå begynner jeg med del 2 av oppgaven
+#Section 1 (Weightage: 15 Percentage)
+import random
+
+#1
+
+""" userInput = int(input("How many drinks do you usually have on a night out? "))
+
+if userInput <= 3:
+    print("Weakling")
+elif userInput in range(4,11):
+    print("Not bad...")
+elif userInput > 10:
+    print("Viking!")   
+
+
 #2
 
-# a) - data cleaning oppgave
+for i in range(0,21):
+    if i % 2 == 0:
+        print(f"Even numbers: {i}")
+
+#3
+
+list = []
+
+for i in range (6):
+   randomInt = random.randint(1,30)
+   list.append(randomInt)
+
+
+print(list)
+
+
+#4
+
+def isPalindrome():
+    user_input = input("Insert a word: ")
+    if user_input[::-1] == user_input:
+        return True
+    else:
+        return False
+    
+print(isPalindrome()) """
+
+# Section 2 (Weightage: 85 Percentage)
+
+# a) - data cleaning
 
 #We made empty lists to store the columns
 isin_company = []
@@ -14,7 +57,7 @@ company = []
 
 lists = isin, company, marketValue, currency, assetClass, xdc
 
-#The functions before task A, B and C is to answer task E
+#The functions A, B and C is to answer task E
 def function_a():
     #Opening the textfile
     text_file = open("Group assignment/xdc_companies_mac.txt", "r")
@@ -57,32 +100,33 @@ def function_b():
 
 
 # c)
-def function_c():
-     with open("Group assignment/xdc_companies.txt", "r") as text_file:
-        #
-        content = text_file.read().replace("_", ",").replace("°C", "")
-        lines = content.splitlines()
 
-        for line in lines:
-            column = line.split(",")
-            isin.append(column[0])
-            company.append(column[1])
-            marketValue.append(column[2])
-            currency.append(column[3])
-            assetClass.append(column[4])
-            xdc.append(column[5])
+def function_c(): 
+    input_file=open("Group assignment/xdc_companies.txt", "r")
+    content = input_file.read().replace("_", ",").replace("°C", "")
+    lines = content.splitlines()
+
+    for line in lines:
+        parts=line.split(",")
+        xdc.append(parts[5])
+    
+    print(xdc)
+ 
 
 
-#føler jeg sletta noe her im so sorry, vi ble stuck her
 def function_d():
-    with open("Group assignment/xdc.txt", "w") as new_file:
-        for list in lists:
-            new_file.write(f"{list}\r\n")
+    input_file = open("Group assignment/xdc_companies_mac.txt", "r")
+    output_file = open("Group assignment/xdc.txt", "w")
+    lines = input_file.readlines()
 
-#function_a()
-#function_b()
-#function_c()
-#function_d()
+    for line in lines:
+        line = line.replace("_", ",")
+        parts = line.split(",")
+        output_file.write(f"{parts[0]}\n{parts[1]}\n{parts[2]}\n{parts[3]}\n{parts[5]}\n")
+    
+    input_file.close()
+    output_file.close()
+
 
 # e) oppgave a, b og c er hver sin egen funksjon. Kan sikkert endre på dette senere og ha alt i en funksjon
 
@@ -119,36 +163,6 @@ def function_f():
                 }
 
         print(companies) 
-
-# function_f()
-
-
-# g) 
-
-
-""" 
-Lar funksjonen vi begynte på stå her så kan du se at vi var på rett vei, vi begynte bare å sette opp dictionary på feil måte for oppgaven
-
-def function_g():
-    #user_input = input("Which company would you like to see the data for? ")
-
-    with open("Group assignment/xdc_companies.txt", "r") as text_file:
-        content = text_file.read().replace("_", ",")
-        lines = content.splitlines()
-        for line in lines:
-            column = line.split(",")
-            isin.append(column[0])
-            company.append(column[1])
-            marketValue.append(column[2])
-            currency.append(column[3])
-            assetClass.append(column[4])
-            xdc.append(column[5])
-
-            companies_dic = {"Sika AG": [xdc]}
-
-            print(companies_dic) """
-
-
     
 
 def function_g():
@@ -156,7 +170,7 @@ def function_g():
     data = {}
     userInput = input("Which company would you like to see the data for? ")
 
-    with open("/xdc_companies_mac.txt", "r") as textFile:
+    with open("Group assignment/xdc_companies.txt", "r") as textFile:
         lines = textFile.readlines()
 
         for line in lines:
@@ -185,4 +199,3 @@ def function_g():
 
         print(f"Data for {userInput} : {data[userInput]}")
 
-function_g()

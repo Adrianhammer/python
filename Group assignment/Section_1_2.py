@@ -148,7 +148,7 @@ def function_c():
 
     input_file.close()
 
-"""
+
 #d)
 isin = []
 company = []
@@ -171,7 +171,7 @@ with open("xdc.txt", "w") as output_file:
   output_file.write(f"{isin},{company},{market_value},{currency},{xdc}\n")
  
 output_file.close()   
-"""
+
 
 #e)
 dict1={}
