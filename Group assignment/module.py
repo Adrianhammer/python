@@ -1,3 +1,7 @@
+#h)
+#Created a module with all the functions
+
+
 isin_company = []
 marketValue = []
 currency = []
@@ -29,7 +33,7 @@ def function_a():
 
 # Function B
 def function_b():
-    with open("Group assignment/xdc_companies.txt", "r") as text_file:
+    with open("Group assignment/xdc_companies_mac.txt", "r") as text_file:
         #We used the function replace to split isin and company, we thought this was the easiest way as we 
         #already split the lines with split(",")
         content = text_file.read().replace("_", ",")
@@ -51,7 +55,7 @@ def function_b():
 
 # Function C
 def function_c(): 
-    input_file=open("Group assignment/xdc_companies.txt", "r")
+    input_file=open("Group assignment/xdc_companies_mac.txt", "r")
     content = input_file.read().replace("_", ",").replace("°C", "")
     lines = content.splitlines()
 
@@ -80,7 +84,7 @@ def function_d():
 
 # Function F
 def function_f():
-        with open("Group assignment/xdc_companies.txt", "r") as text_file:
+        with open("Group assignment/xdc_companies_mac.txt", "r") as text_file:
             content = text_file.read().replace("_", ",")
             lines = content.splitlines()
 
@@ -116,7 +120,7 @@ def function_g():
     data = {}
     userInput = input("Which company would you like to see the data for? ")
 
-    with open("Group assignment/xdc_companies.txt", "r") as textFile:
+    with open("Group assignment/xdc_companies_mac.txt", "r") as textFile:
         lines = textFile.readlines()
 
         for line in lines:
