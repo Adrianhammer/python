@@ -155,7 +155,6 @@ def function_g():
 
         for line in lines:
             line = line.replace("_", ",")
-            print(f"Processing line: {line.strip()}")
             section = line.strip().split(",")
 
             isin = section[0]
