@@ -3,7 +3,7 @@
 
 # a) - data cleaning oppgave
 
-
+#We made empty lists to store the columns
 isin_company = []
 marketValue = []
 currency = []
@@ -14,10 +14,11 @@ company = []
 
 lists = isin, company, marketValue, currency, assetClass, xdc
 
-
+#The functions before task A, B and C is to answer task E
 def function_a():
+    #Opening the textfile
     text_file = open("Group assignment/xdc_companies_mac.txt", "r")
-
+#We used a for loop to split the columns by commas
     for line in text_file:
         column = line.split(",")
         isin_company.append(column[0])
@@ -25,8 +26,9 @@ def function_a():
         currency.append(column[2])
         assetClass.append(column[3])
         xdc.append(column[4])
-
+#Closing file to save adjustments
     text_file.close()
+    #printing to test out function, and seperating lines so it looks more clean when printed
     print(*isin_company, sep="\n ")
 
 
@@ -34,9 +36,12 @@ def function_a():
 
 def function_b():
     with open("Group assignment/xdc_companies.txt", "r") as text_file:
+        #We used the function replace to split isin and company, we thought this was the easiest way as we 
+        #already split the lines with split(",")
         content = text_file.read().replace("_", ",")
         lines = content.splitlines()
 
+#adding isin as a seperate column, and therefore the index numbers change
         for line in lines:
             column = line.split(",")
             isin.append(column[0])
@@ -46,15 +51,15 @@ def function_b():
             assetClass.append(column[4])
             xdc.append(column[5])
 
-
-    #print(*isin, sep="\n ")
+#printing to check that they are seperated
+    print(*isin, sep="\n ")
     print(*company, sep="\n ")
 
 
-# c) Fikser denne senere slik at text filen blir bedre skrevet til (vertikale kolonner istedenfor horisontale)
+# c)
 def function_c():
      with open("Group assignment/xdc_companies.txt", "r") as text_file:
-#    with open("/Users/kamillakjaer/downloads/xdc_companies_mac.txt", "r") as text_file:
+        #
         content = text_file.read().replace("_", ",").replace("°C", "")
         lines = content.splitlines()
 
@@ -98,6 +103,7 @@ def function_f():
                 assetClass.append(column[4])
                 xdc.append(column[5])
 
+#We used dictionaries to connect each column
             companies={
                 f"{company[0]}":f"{xdc[0]}",
                 f"{company[1]}":f"{xdc[1]}",
@@ -150,7 +156,7 @@ def function_g():
     data = {}
     userInput = input("Which company would you like to see the data for? ")
 
-    with open("Group assignment/xdc_companies.txt", "r") as textFile:
+    with open("/xdc_companies_mac.txt", "r") as textFile:
         lines = textFile.readlines()
 
         for line in lines:
@@ -178,3 +184,5 @@ def function_g():
             userInput = input("Which company would you like to see the data for? ")
 
         print(f"Data for {userInput} : {data[userInput]}")
+
+function_g()
