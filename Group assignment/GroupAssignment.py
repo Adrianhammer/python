@@ -3,7 +3,7 @@ import random
 
 #1
 
-""" userInput = int(input("How many drinks do you usually have on a night out? "))
+userInput = int(input("How many drinks do you usually have on a night out? "))
 
 if userInput <= 3:
     print("Weakling")
@@ -40,7 +40,7 @@ def isPalindrome():
     else:
         return False
     
-print(isPalindrome()) """
+print(isPalindrome())
 
 # Section 2 (Weightage: 85 Percentage)
 
