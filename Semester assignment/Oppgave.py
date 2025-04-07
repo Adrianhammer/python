@@ -27,7 +27,9 @@ def generate_password():
 generate_password()
 
 # Oppgave 2
-
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
 #a)
 
 orders = pd.read_csv('orders.csv')
@@ -55,6 +57,12 @@ print(result)
 
 # Oppgave 3
 
+#3
+#a)
+print(result.describe())
+
+#b) 
+result['month'] = pd.to_datetime(result['month'], format='%Y-%m')
 # Filtrer data for hvert produkt basert på product_id
 mac_df = result[result["product_id"] == 1001]
 lenovo_df = result[result["product_id"] == 1002]
