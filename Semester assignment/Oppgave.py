@@ -3,9 +3,8 @@ import pandas as pd
 import numpy as np
 
 # Oppgave 1
-
+#%%
 import random
-
 
 def generate_password():
     password_length = int(input("Give a number between 15 and 20 to decide the length of your password"))
@@ -25,42 +24,49 @@ def generate_password():
         print(password)
     
 generate_password()
-
+#%%
 # Oppgave 2
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+
 #a)
 
 orders = pd.read_csv('orders.csv')
 print(orders.head())
 
+#%%
 #b)
 
 products = pd.read_excel('products.xlsx')
 print(products.head())
 
+#%%
+
 #c) Merge orders and products using "product_id" as the common column
 
 result = orders.merge(products, on = 'product_id')
 print(result.head())
-
+#%%
 #d) drop rows with NaNs
 
 result.dropna(inplace = True)
 print(result)
+#%%
 
 #e) Create a new variable called "order_cost", which is the product amount multiplied with product cost
 
 result['order_cost'] = result['units_sold'] * result['product_cost']
-print(result)
-
+print(f"here is {result}")
+#%%
 # Oppgave 3
 
 #3
 #a)
 print(result.describe())
 
+#%%
 #b) 
 result['month'] = pd.to_datetime(result['month'], format='%Y-%m')
 # Filtrer data for hvert produkt basert på product_id
@@ -69,12 +75,13 @@ lenovo_df = result[result["product_id"] == 1002]
 iphone_df = result[result["product_id"] == 1003]
 samsung_df = result[result["product_id"] == 1004]
 
-# Beregn korrelasjonskoeffisientene
-corr_mac = mac_df.corr().loc["sales_price_per_unit", "units_sold"]
-corr_lenovo = lenovo_df.corr().loc["sales_price_per_unit", "units_sold"]
-corr_iphone = iphone_df.corr().loc["sales_price_per_unit", "units_sold"]
-corr_samsung = samsung_df.corr().loc["sales_price_per_unit", "units_sold"]
 
+# Beregn korrelasjonskoeffisientene
+corr_mac = mac_df[["sales_price_per_unit", "units_sold"]].corr().loc["sales_price_per_unit", "units_sold"]
+#corr_mac = mac_df.corr().loc["sales_price_per_unit", "units_sold"]
+corr_lenovo = lenovo_df[["sales_price_per_unit", "units_sold"]].corr().loc["sales_price_per_unit", "units_sold"]
+corr_iphone = iphone_df[["sales_price_per_unit", "units_sold"]].corr().loc["sales_price_per_unit", "units_sold"]
+corr_samsung = samsung_df[["sales_price_per_unit", "units_sold"]].corr().loc["sales_price_per_unit", "units_sold"]
 
 # Opprett subplots
 fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 8))
@@ -85,6 +92,7 @@ axes[0, 0].scatter(mac_df["sales_price_per_unit"], mac_df["units_sold"])
 axes[0, 0].set_title(f"Macbook Air (r = {corr_mac:.2f})")
 axes[0, 0].set_xlabel("Price")
 axes[0, 0].set_ylabel("Quantity")
+
 
 # Plot Lenovo Thinkpad
 axes[0, 1].scatter(lenovo_df["sales_price_per_unit"], lenovo_df["units_sold"])
@@ -104,8 +112,9 @@ axes[1, 1].set_title(f"Samsung Galaxy S22 (r = {corr_samsung:.2f})")
 axes[1, 1].set_xlabel("Price")
 axes[1, 1].set_ylabel("Quantity")
 
-plt.show()
 
+plt.show()
+#%%
 
 # Oppgave 4
 
@@ -124,6 +133,7 @@ ax.set_ylabel('Total Revenue')
 
 plt.show()
 
+#%%
 #4b)
 # filtering rows with Mac
 
@@ -135,4 +145,6 @@ Samsung = result[result['product_name'] == 'Samsung Galaxy S22']
 fig, ax = plt.subplots(nrows = 1, ncols = 4)
 
 
-ax[0].hist(Iphone,)
+ax[0].hist(Iphone)
+
+# %%
